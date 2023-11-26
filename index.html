@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Static Template</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+  </head>
+  <body>
+   
+    <!-- Voice Selector -->
+    <label for="voiceSelector">Select Voice:</label>
+    <select id="voiceSelector"></select><br><br>
+  
+    <div>
+      <textarea id="textarea" placeholder="Paste your text (ctrl+v)"></textarea><br>
+
+      <div id="buttoncontainer">
+        <button id="copyButton" onclick="copyToClipboard()"><i class="fa-regular fa-copy fa-beat fa-lg" style="color: #dbdbdb;"></i></button>
+        <button id="pasteButton" onclick="pasteFromClipboard()"><i class="fa-solid fa-clipboard fa-beat fa-lg" style="color: #dbdbdb;"></i></button>
+        <button id="clearButton" onclick="clearTextarea()"><i class="fa-solid fa-trash fa-beat fa-lg" style="color: #dbdbdb;"></i></button>
+      </div>
+
+      <div id="rowbuttons">
+        <button id="playButton" value="play"><i class="fas fa-play"></i></button>
+        <button id="pauseResumeButton"><i class="fas fa-pause"></i></button>
+        <button id="stopButton" value="stop"><i class="fas fa-stop"></i></button>
+      </div>
+    </div>
+
+    
+
+    <script src="script.js"></script>
+  </body>
+  
+</html>
