@@ -1,5 +1,5 @@
 const staticCacheName = 'site-static-v2';
-const dynamicCacheName = 'site-dinamic-v1';
+const dynamicCacheName = 'site-dinamic-v2';
 const assets = [
     '/',
     '/index.html',
@@ -8,7 +8,23 @@ const assets = [
     '/about.html',
     '/js/app.js',
     '/js/script.js',
-    '/img/copyicon.png',
+    '/images/icons/48.png',
+    '/images/icons/57.png',
+    '/images/icons/60.png',
+    '/images/icons/72.png',
+    '/images/icons/76.png',
+    '/images/icons/96.png',
+    '/images/icons/120.png',
+    '/images/icons/128.png',
+    '/images/icons/144.png',
+    '/images/icons/152.png',
+    '/images/icons/180.png',
+    '/images/icons/192.png',
+    '/images/icons/256.png',
+    '/images/icons/512.png',
+    '/images/screenshots/aboutTabAndroid.png',
+    '/images/screenshots/settingsTabAndroid.png',
+    'images/screenshots/homeTabAndroid.png',
     '/css/styles.css',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css',
 ];
