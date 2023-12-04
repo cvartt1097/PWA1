@@ -1,6 +1,7 @@
 {
     "name": "The Vocero",
-    "short_name": "Vocero", 
+    "short_name": "Vocero",
+    "id": "index.html",
     "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#3d3a3e",
