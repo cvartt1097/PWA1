@@ -1,5 +1,6 @@
 {
     "name": "The Vocero",
+    "lang": "en",
     "short_name": "Vocero",
     "id": "index.html",
     "start_url": "/index.html",
