@@ -4,35 +4,48 @@ if('serviceWorker' in navigator){
     .catch((err) => console.log('service worker not registered', err));
 }
 
-// Dexie Database
-// const db = new Dexie("TextareaDB");
 
-// // Table, Version, and Index
-// db.version(1).stores({
-//   textareaStates: "++id, text, &text", // & denotes an index
-// });
 
-// // Function to save or update the textarea state
-// async function saveTextareaState(text) {
-//   await db.textareaStates.put({ text });
-// }
+// Create a new Database to hold text
+let db = new Dexie("TextDatabase");
 
-// // Function to retrieve the last saved textarea state
-// async function getLastTextareaState() {
-//   const latestState = await db.textareaStates.orderBy("id").last();
-//   return latestState ? latestState.text : "";
-// }
+// Declare the schema for your new database table named "text"
+db.version(1).stores({
+  text: "++id, content, timestamp"
+});
 
-// const textareaElement = document.getElementById("textarea");
+// Textarea element
+const textarea = document.querySelector("#textarea");
 
-// // Save the textarea state when it changes
-// textareaElement.addEventListener("input", () => {
-//   const newText = textareaElement.value;
-//   saveTextareaState(newText);
-// });
+// Listen for the play button click event
 
-// // Retrieve and set the last saved textarea state when the page loads
-// document.addEventListener("DOMContentLoaded", async () => {
-//   const lastTextareaState = await getLastTextareaState();
-//   textareaElement.value = lastTextareaState;
-// });
+playButton.addEventListener("click", saveTextToDatabase);
+
+// Function to save text to the Dexie.js database
+function saveTextToDatabase() {
+  let text = textarea.value.trim();
+
+  // Check if the textarea has content
+  if (text !== "") {
+    // Add text to the Dexie.js database with a timestamp
+    db.text.add({
+      content: text,
+      timestamp: new Date()
+    });
+
+    // Show a notification or perform any other action if needed
+    console.log("Text saved to the database");
+  }
+}
+
+// Function to retrieve and display the latest text from the database
+async function displayLatestText() {
+  // Retrieve the latest text from the database
+  let latestText = await db.text.orderBy('timestamp').last();
+
+  // Update the textarea with the latest text
+  textarea.value = latestText ? latestText.content : "";
+}
+
+// Call the function to display the latest text on page load
+displayLatestText();
