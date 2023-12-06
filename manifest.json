@@ -86,11 +86,11 @@
 
 
     ],
-
+    
     
     "screenshots": [
         {
-          "src": "PWA1/images/screenshots/homeTabAndroid.png",
+          "src": "images/screenshots/homeTabAndroid.png",
           "sizes": "412x915",
           "type": "image/png",
           "form_factor": "narrow",
@@ -98,7 +98,7 @@
           "label": "Homescreen of the app"
         },
         {
-          "src": "PWA1/images/screenshots/aboutTabAndroid.png",
+          "src": "images/screenshots/aboutTabAndroid.png",
           "sizes": "412x915",
           "type": "image/png",
           "form_factor": "narrow",
@@ -106,7 +106,7 @@
           "label": "About tab of the app"
         },
         {
-           "src": "PWA1/images/screenshots/settingsTabAndroid.png",
+           "src": "images/screenshots/settingsTabAndroid.png",
           "sizes": "412x915",
           "type": "image/png",
           "form_factor": "narrow",
