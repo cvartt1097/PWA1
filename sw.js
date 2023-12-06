@@ -1,5 +1,5 @@
-const staticCacheName = 'site-static-v6';
-const dynamicCacheName = 'site-dinamic-v6';
+const staticCacheName = 'site-static-v7';
+const dynamicCacheName = 'site-dinamic-v7';
 const assets = [
     '/',
     '/index.html',
@@ -61,23 +61,26 @@ self.addEventListener('activate', evt => {
 
 // fetch event
 self.addEventListener('fetch', evt => {
-    //console.log('fetch event', evt);
     evt.respondWith(
         caches.match(evt.request).then(cacheRes => {
             return cacheRes || fetch(evt.request).then(fetchRes => {
-             return caches.open(dynamicCacheName).then(cache => {
-                cache.put(evt.request.url, fetchRes.clone())
-                return fetchRes;
-             })   
+                // Check if the request scheme is supported
+                if (evt.request.url.startsWith('http')) {
+                    // Cache the resource if the scheme is supported
+                    return caches.open(dynamicCacheName).then(cache => {
+                        cache.put(evt.request.url, fetchRes.clone());
+                        return fetchRes;
+                    });
+                } else {
+                    // If the scheme is not supported, just return the fetch response
+                    return fetchRes;
+                }
             });
         }).catch(() => {
-            if(evt.request.url.indexOf('.html') > -1){
+            if (evt.request.url.indexOf('.html') > -1) {
                 return caches.match('/offlinemsg.html');
             }
-            
         })
     );
-
-
 });
 
