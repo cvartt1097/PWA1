@@ -1,3 +1,31 @@
+
+if('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker
+    .register('../sw.js')
+    .then(reg => console.log('Service Worker: Registered'))
+    .catch(err => console.log(`Service Worker: error: ${err}`))
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var utterance = new SpeechSynthesisUtterance();
 utterance.lang = 'en-UK';
 utterance.rate = 1;
