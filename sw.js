@@ -1,11 +1,11 @@
 const staticCacheName = 'site-static-v7';
 const dynamicCacheName = 'site-dinamic-v7';
 const assets = [
-    '/',
-    '/index.html',
-    '/offlinemsg.html',
-    '/settings.html',
-    '/about.html',
+   
+    'index.html',
+    'offlinemsg.html',
+    'settings.html',
+    'about.html',
     '/js/app.js',
     '/js/script.js',
     '/images/icons/48.png',
