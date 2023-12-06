@@ -6,6 +6,7 @@ if('serviceWorker' in navigator){
 
 
 
+
 // Create a new Database to hold text
 let db = new Dexie("TextDatabase");
 
@@ -17,20 +18,32 @@ db.version(1).stores({
 // Textarea element
 const textarea = document.querySelector("#textarea");
 
-// Listen for the play button click event
 
+
+// Listen for the play button click event
 playButton.addEventListener("click", saveTextToDatabase);
 
 // Function to save text to the Dexie.js database
-function saveTextToDatabase() {
+async function saveTextToDatabase() {
   let text = textarea.value.trim();
 
   // Check if the textarea has content
   if (text !== "") {
+    const timestamp = new Date();
+
+    // Check if there are more than 5 objects in the database
+    const count = await db.text.count();
+
+    if (count >= 5) {
+      // Clear the object store if there are more than 5 objects
+      await db.text.clear();
+      console.log("Cleared the object store");
+    }
+
     // Add text to the Dexie.js database with a timestamp
-    db.text.add({
+    await db.text.add({
       content: text,
-      timestamp: new Date()
+      timestamp: timestamp
     });
 
     // Show a notification or perform any other action if needed
@@ -38,7 +51,7 @@ function saveTextToDatabase() {
   }
 }
 
-// Function to retrieve and display the latest text from the database
+//Function to retrieve and display the latest text from the database
 async function displayLatestText() {
   // Retrieve the latest text from the database
   let latestText = await db.text.orderBy('timestamp').last();
@@ -49,3 +62,5 @@ async function displayLatestText() {
 
 // Call the function to display the latest text on page load
 displayLatestText();
+
+
