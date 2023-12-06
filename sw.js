@@ -24,7 +24,7 @@ const assets = [
     '/images/icons/512.png',
     '/images/screenshots/aboutTabAndroid.png',
     '/images/screenshots/settingsTabAndroid.png',
-    'images/screenshots/homeTabAndroid.png',
+    '/images/screenshots/homeTabAndroid.png',
     '/css/styles.css',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css',
 ];
